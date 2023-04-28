@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>회원 가입</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+</head>
+<body>
+<div id="container">
+    <header>
+        <h1>회원 가입</h1>
+    </header>
+    <section id="register">
+        <form action="" method="post">
+            <fieldset>
+                <ul>
+                    <li>
+                        <label>아이디</label>
+                        <input type="text" name="memberid">
+                    </li>
+                    <li>
+                        <label>비밀번호</label>
+                        <input type="password" name="memberpw">
+                    </li>
+                    <li>
+                        <label>이름</label>
+                        <input type="text" name="name">
+                    </li>
+                    <li>
+                        <label>성별</label>
+                        <input type="text" name="gender">
+                    </li>
+                    <li>
+                        <input type="submit" value="가입">
+                        <input type="reset" VALUE="취소">
+                    </li>
+                </ul>
+            </fieldset>
+        </form>
+    </section>
+</div>
+</body>
+</html>
