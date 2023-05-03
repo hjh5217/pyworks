@@ -33,39 +33,45 @@ nav{float: right; width: 70%; padding-top: 40px;}
 #main .img1 img{border-radius: 5px;}
 
 /* footer 스타일 */
-footer{height:80px; border-top: 2px solid #222;}
+footer{height: 80px; border-top: 2px solid #222;}
 #bottomMenu{margin: 10px 10px 10px 40px;}
-#bottomMenu li{display: inline-block; margin:10px 0; padding: 0 10px; border-right: 1px solid #ccc;}
+#bottomMenu li{display: inline-block; margin: 10px 0; padding: 0 10px;
+    border-right: 1px solid #ccc;}
 #bottomMenu li a{color: #444;}
-#bottomMenu li:last-child{border:none;}
+#bottomMenu li:last-child{border: none;}
 
 /* memberlist 스타일 */
 #memberlist{margin: 40px auto;}
 #memberlist table{width: 700px; margin: 30px auto;}
 #memberlist table, th, td{border: 1px solid #ccc;
-border-collapse : collapse; text-align:center;}
+    border-collapse: collapse; text-align: center;}
 #memberlist table th, td{padding: 10px 0;}
 #memberlist table thead{background: #eee;}
 
-/* register style */
-#register{width:500px; margin:40px auto;}
+/* register 스타일 */
+#register{width: 500px; margin: 40px auto;}
 #register form{margin: 40px auto;}
-#register form ul li{margin: 30px 30px 30px 40px;}
-#register form label{width:120px; float:left; padding-left:30px}
-#register form input[type='text'],input[type='password']{width:200px; height:25px;}
-#register form li label.radio{width:40px; padding-left:0;}
-#register form li.button{clear:both; padding: 30px; text-align:center;}
-#register form input[type='submit'],input[type='reset']{width:80px; height:30px;}
+#register form ul li{margin: 20px 20px 20px 30px;}
+#register form label{width: 120px; float: left; padding-left: 30px;}
+#register form input[type='text']{width: 260px; height: 25px}
+#register form input[type='password']{width: 260px; height: 25px}
+#register form label.radio{width: 40px; padding-left: 0; margin-right: 15px;}
+#register form li.button{clear: both; padding-top: 30px; margin-left: 150px;}
+#register form input[type='button'],input[type='reset']{width: 80px; height: 30px}
 
-/* login style */
-#login {width:500px; margin:40px auto;}
+/* login 스타일 */
+#login {width: 500px; margin: 40px auto;}
 #login form{margin: 40px auto;}
-#login form ul li{margin:30px 70px;}
-#login form label{width:100px; float:left;}
-#login form input[type='text'],input[type='password']{width:200px; height:30px;}
-#login form input[type='submit']{width:100px;height:30px;}
-#login form ul li:nth-of-type(3){margin-left:200px;}
-#login form p.error{text-align: center; color: #f00; font-weight:bold;padding:10px}
+#login form ul li{margin: 30px 70px;}
+#login form label{width: 100px; float: left}
+#login form input[type='text'],input[type='password']{width: 200px; height: 30px;}
+#login form input[type='submit']{width: 100px; height: 30px;}
+#login form ul li:nth-of-type(3){margin-left: 200px;}
+#login form p.error{text-align: center; color: #f00; font-weight: bold;
+    padding-top: 15px;}
 
-
-
+/* main 스타일 */
+#main{clear: both; margin: 80px auto;}
+#main .img1{margin:20px auto; text-align: center;}
+#main .img1 img{border-radius:5px;}
+#main #demo{text-align:center}
