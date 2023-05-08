@@ -38,5 +38,5 @@ def select_one():
     conn.close()
 
 # insert()
-# select()
-select_one()
+select()
+# select_one()
