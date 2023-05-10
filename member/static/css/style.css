@@ -13,7 +13,7 @@ nav{float: right; width: 70%; height: 100px;}
 /* 주메뉴 */
 #topMenu{height: 60px;}
 #topMenu > li{float: left; position: relative;}
-#topMenu > li > a{display: block; padding: 40px 0px 40px 50px; color: #eee;}
+#topMenu > li > a{display: block; padding: 40px 10px; color: #eee;}
 #topMenu > li > a:hover{ color: #444;}
 
 /* 부메뉴 */
@@ -68,6 +68,15 @@ footer{height: 80px; border-top: 2px solid #222;}
 #login form ul li:nth-of-type(3){margin-left: 200px;}
 #login form p.error{text-align: center; color: #f00; font-weight: bold;
     padding-top: 15px;}
+
+/* boardlist 스타일 */
+#boardlist{width:450px; margin:40px auto 100px;}
+#boardlist table{width:450px; margin: 30px auto}
+#boardlist table, th, td{border : 1px solid #ccc; border-collapse:collapse}
+#boardlist table, th, td{padding:10px 0; font-size: 0.9em}
+#boardlist table thead{background:#eee}
+#boardlist .btnWrite{text-align:right; margin-right:10px;}
+#boardlist .btnWrite button{padding:10px}
 
 /* 태블릿 기준 - 780px 이상 */
 @media screen and (min-width:780px){

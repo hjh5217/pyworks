@@ -13,8 +13,53 @@ app.secret_key = "asdfqqewr1234%#@"
 def getconn():
     conn = sqlite3.connect("c:/green_project/sqlworks/pydb/member.db")
     return conn
-print(getconn())
+print(getconn(), "연결 객체 생성됨")
 
+# board 테이블 연동
+def create_board():
+    conn = getconn()
+    cursor = conn.cursor()
+    sql = """
+        CREATE TABLE board(
+            bno         INTEGER PRIMARY KEY AUTOINCREMENT,
+            title       TEXT NOT NULL,
+            content     TEXT NOT NULL,
+            createdate  DATETIME DEFAULT(datetime('now','localtime')),
+            hit         INTEGER DEFAULT 0,
+            memberid    TEXT NOT NULL,
+            FOREIGN KEY(memberid) REFERENCES member(memberid) ON DELETE CASCADE
+        )
+    """
+    cursor.execute(sql)
+    conn.commit()
+    conn.close()
+    print("테이블 생성")
+
+def insert_board():
+    conn=getconn()
+    cursor = conn.cursor()
+    sql = "INSERT INTO board(title,content,memberid) VALUES (?,?,?)"
+    cursor.execute(sql,("안녕하세요","날씨맑음","juhoon"))
+    conn.commit()
+    conn.close()
+
+def drop_board():
+    conn=getconn()
+    cursor = conn.cursor()
+    sql = "DROP TABLE board"
+    cursor.execute(sql)
+    conn.commit()
+    conn.close()
+
+def select_board():
+    conn=getconn()
+    cursor = conn.cursor()
+    sql = "SELECT * FROM board"
+    cursor.execute(sql)
+    boardlist = cursor.fetchall()
+    print(boardlist)
+    conn.close()
+select_board()
 # url - '/' 경로 설정
 @app.route('/', methods = ['GET'])
 def index():
@@ -89,4 +134,18 @@ def logout():
     session.clear()  #모든 세션 삭제
     return redirect(url_for('index'))
 
+@app.route('/boardlist', methods = ['GET'])
+def boardlist():
+    conn = getconn()
+    cursor = conn.cursor()
+    sql = "SELECT * FROM board"
+    cursor.execute(sql)
+    boardlist = cursor.fetchall()
+    conn.close()
+    return render_template('boardlist.html', boardlist = boardlist)
+
+#글쓰기
+@app.route('/writing')
+def writing():
+    return render_template('writing.html')
 app.run()
