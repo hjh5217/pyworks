@@ -138,14 +138,54 @@ def logout():
 def boardlist():
     conn = getconn()
     cursor = conn.cursor()
-    sql = "SELECT * FROM board"
+    sql = "SELECT * FROM board ORDER BY createdate DESC"
     cursor.execute(sql)
     boardlist = cursor.fetchall()
     conn.close()
     return render_template('boardlist.html', boardlist = boardlist)
 
 #글쓰기
-@app.route('/writing')
+@app.route('/writing', methods=['GET','POST'])
 def writing():
+    if request.method == 'POST':
+        #입력된 글을 가져와서 db에 저장
+        title = request.form['title']
+        content = request.form['content']
+        #userid - session 이름을 가져옴
+        memberid = session.get('userid')
+
+        conn = getconn()
+        cursor = conn.cursor()
+        sql = f"INSERT INTO board(title,content,memberid) "\
+              f"VALUES ('{title}','{content}','{memberid}')"
+        cursor.execute(sql)
+        conn.commit()
+        conn.close()
+
+        return redirect(url_for('boardlist'))
     return render_template('writing.html')
+
+# 글 상세보기
+@app.route('/detail/<int:bno>', methods=['GET'])
+def detail(bno):
+    # DB의 board 테이블에서 bno 로 검색된 글 가져오기
+    conn = getconn()
+    cursor = conn.cursor()
+    sql = f"SELECT * FROM board WHERE bno = {bno}"
+    cursor.execute(sql)
+    board = cursor.fetchone() # 게시글 1개 가져옴
+    return render_template('detail.html', board = board)
+
+#글 삭제
+@app.route('/delete/<int:bno>', methods=['GET'])
+def delete(bno):
+    # 삭제 요청한 글 번호를 DB board 테이블 삭제
+    conn = getconn()
+    cursor = conn.cursor()
+    sql = f"DELETE FROM board WHERE bno = {bno}" #숫자이므로 따옴표 붙이지 않음
+    cursor.execute(sql)
+    conn.commit()
+    conn.close()
+    return redirect(url_for('boardlist'))
+
 app.run()

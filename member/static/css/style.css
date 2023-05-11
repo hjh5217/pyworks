@@ -74,9 +74,28 @@ footer{height: 80px; border-top: 2px solid #222;}
 #boardlist table{width:450px; margin: 30px auto}
 #boardlist table, th, td{border : 1px solid #ccc; border-collapse:collapse}
 #boardlist table, th, td{padding:10px 0; font-size: 0.9em}
+#boardlist table td:nth-of-type(2){text-align:left;}
 #boardlist table thead{background:#eee}
 #boardlist .btnWrite{text-align:right; margin-right:10px;}
 #boardlist .btnWrite button{padding:10px}
+
+/* writing 스타일 */
+#writing{width: 450px; margin 40px auto 100px;}
+#writing table{width:450px; margin: 30px auto;}
+#writing table, td{border: 1px solid #ccc
+                    border-collapse:collapse}
+#writing table input[type='text']{width:430px; height:25px;}
+#writing textarea{width: 430px; height: 300px;}
+#writing table input[type='submit'], input[type='reset']{width:80px; height:30px;}
+
+#detail{width: 450px; margin 40px auto 100px;}
+#detail table{width:450px; margin: 30px auto;}
+#detail table, td{border: 1px solid #ccc
+                    border-collapse:collapse}
+#detail table input[type='text']{width:430px; height:25px;}
+#detail textarea{width: 430px; height: 300px;}
+#detail table input[type='submit'], input[type='reset']{width:80px; height:30px;}
+
 
 /* 태블릿 기준 - 780px 이상 */
 @media screen and (min-width:780px){
