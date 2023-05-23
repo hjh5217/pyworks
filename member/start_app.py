@@ -149,8 +149,8 @@ def boardlist():
 def writing():
     if request.method == 'POST':
         #입력된 글을 가져와서 db에 저장
-        title = request.form['title']
-        content = request.form['content']
+        title = request.form['title'].replace("'","''")
+        content = request.form['content'].replace("'","''")
         #userid - session 이름을 가져옴
         memberid = session.get('userid')
 
